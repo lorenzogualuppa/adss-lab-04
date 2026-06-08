@@ -1,0 +1,60 @@
+lorenzogualuppa@MacBook-Air-di-Lorenzo-4 adss-lab-04 % ./wlp --main::instance ../lab_greedy_techniques_24-03-2026/Instances/wlp50.dzn 
+INITIAL STATE MENU: 
+    (1) Random state 
+    (2) Greedy state 
+    (3) Read from file
+    (4) Show input
+Your choice : 1
+INITIAL SOLUTION 
+[23, 10, 33, 12, 30, 37, 0, 31, 41, 3, 6, 45, 40, 39, 26, 49, 28, 11, 46, 16, 47, 2, 4, 19, 22, 42, 1, 44, 27, 5, 32, 18, 9, 20, 35, 38, 13, 8, 7, 17, 43, 14, 21, 48, 15, 34, 25, 36, 29, 24, 23, 10, 33, 12, 30, 37, 0, 31, 41, 3, 6, 45, 40, 39, 26, 49, 28, 11, 46, 16, 47, 2, 4, 19, 22, 42, 1, 44, 27, 5, 32, 18, 9, 20, 35, 38, 13, 8, 7, 17, 43, 14, 21, 48, 15, 34, 25, 36, 29, 24, 23, 10, 33, 12, 30, 37, 0, 31, 41, 3, 6, 45, 40, 39, 26, 49]
+INITIAL COST : 161915 (viol: 50, obj: 111915, comps: {79145, 32770, 50})
+ELAPSED TIME : 0s
+MAIN MENU:
+   (1) Move menu
+   (3) Run menu
+   (4) State menu
+   (0) Exit
+ Your choice: 1
+MOVE MENU: 
+   (1) WL_Change move [1-modal]
+   (0) Return to Main Menu
+ Your choice: 1
+Move Menu: 
+     (1)  Perform Best Move
+     (2)  Perform First Improving Move
+     (3)  Perform Random Move
+     (4)  Perform Input Move
+     (5)  Print All Neighbors
+     (6)  Print Neighborhood Statistics
+     (7)  Print Random Move Cost
+     (8)  Print Input Move Cost
+     (9)  Check Neighborhood Costs
+    (10)  Check Move Independence
+    (11)  Check Random Move Distribution
+     (0)  Return to Main Menu
+ Your choice: 9
+........................................................
+No error found (for 5684 moves)!
+ELAPSED TIME : 0.005s
+Move Menu: 
+     (1)  Perform Best Move
+     (2)  Perform First Improving Move
+     (3)  Perform Random Move
+     (4)  Perform Input Move
+     (5)  Print All Neighbors
+     (6)  Print Neighborhood Statistics
+     (7)  Print Random Move Cost
+     (8)  Print Input Move Cost
+     (9)  Check Neighborhood Costs
+    (10)  Check Move Independence
+    (11)  Check Random Move Distribution
+     (0)  Return to Main Menu
+ Your choice: 0
+Leaving WL_Change move menu
+MAIN MENU:
+   (1) Move menu
+   (3) Run menu
+   (4) State menu
+   (0) Exit
+ Your choice: 0
+Bye bye...

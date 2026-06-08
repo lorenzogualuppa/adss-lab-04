@@ -1,0 +1,60 @@
+lorenzogualuppa@MacBook-Air-di-Lorenzo-4 adss-lab-04 % ./wlp --main::instance ../lab_greedy_techniques_24-03-2026/Instances/wlp10.dzn
+INITIAL STATE MENU: 
+    (1) Random state 
+    (2) Greedy state 
+    (3) Read from file
+    (4) Show input
+Your choice : 1
+INITIAL SOLUTION 
+[1, 5, 0, 2, 9, 4, 3, 6, 8, 7, 1, 5, 0, 2, 9, 4, 3, 6, 8, 7, 1, 5, 0, 2, 9]
+INITIAL COST : 21754 (viol: 1, obj: 20754, comps: {13994, 6760, 1})
+ELAPSED TIME : 0s
+MAIN MENU:
+   (1) Move menu
+   (3) Run menu
+   (4) State menu
+   (0) Exit
+ Your choice: 1
+MOVE MENU: 
+   (1) WL_Change move [1-modal]
+   (0) Return to Main Menu
+ Your choice: 1
+Move Menu: 
+     (1)  Perform Best Move
+     (2)  Perform First Improving Move
+     (3)  Perform Random Move
+     (4)  Perform Input Move
+     (5)  Print All Neighbors
+     (6)  Print Neighborhood Statistics
+     (7)  Print Random Move Cost
+     (8)  Print Input Move Cost
+     (9)  Check Neighborhood Costs
+    (10)  Check Move Independence
+    (11)  Check Random Move Distribution
+     (0)  Return to Main Menu
+ Your choice: 9
+..
+No error found (for 225 moves)!
+ELAPSED TIME : 0s
+Move Menu: 
+     (1)  Perform Best Move
+     (2)  Perform First Improving Move
+     (3)  Perform Random Move
+     (4)  Perform Input Move
+     (5)  Print All Neighbors
+     (6)  Print Neighborhood Statistics
+     (7)  Print Random Move Cost
+     (8)  Print Input Move Cost
+     (9)  Check Neighborhood Costs
+    (10)  Check Move Independence
+    (11)  Check Random Move Distribution
+     (0)  Return to Main Menu
+ Your choice: 0
+Leaving WL_Change move menu
+MAIN MENU:
+   (1) Move menu
+   (3) Run menu
+   (4) State menu
+   (0) Exit
+ Your choice: 0
+Bye bye...

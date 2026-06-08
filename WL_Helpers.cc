@@ -194,6 +194,26 @@ ostream& operator<<(ostream& os, const WL_Change& mv) //metodo usato per stampar
 
 void WL_ChangeNeighborhoodExplorer::RandomMove(const WL_Output& st, WL_Change& mv) const //genera una mossa casuale
 {
+  //--------------------------------------------------------------------
+  if (in.Warehouses() <= 1) {
+    // Se c'è un solo magazzino, è impossibile spostare la merce.
+    // Restituisco una mossa finta non valida per evitare loop infiniti.
+    mv.store = 0; mv.old_w = 0; mv.new_w = 0;
+    return;
+  }//è stato aggiunto da antigravity per l'assignment 3 per utilizzare il comando che faccia ccompilare tutte e 17 le istanze in un colpo solo
+
+  /*
+  il comando è il seguente:
+  for file in ../lab_greedy_techniques_24-03-2026/Instances/*.dzn; do
+  echo "------------------------------------------------"
+  echo "Istanza: $file"
+  echo "1" | ./wlp --main::instance "$file" --main::method HC --HC::max_evaluations 10000000 --HC::max_idle_iterations 1000000
+done
+   */
+
+  //--------------------------------------------------------------------
+
+
   // Sceglie un negozio a caso
   //i :: indicano a che famiglia deve appartenere il comando (tipo uniform deve appartenere alla famiglia Random)
   //uniform indica che vogliamo una distribuzione uniforme, cioè che ogni negozio ha la stessa probabilità di essere scelto, e int indica che vogliamo un numero intero
@@ -306,6 +326,7 @@ int WL_ChangeDeltaOpening::ComputeDeltaCost(const WL_Output& st, const WL_Change
   return delta;
 }
 
+/*
 int WL_ChangeDeltaCapacity::ComputeDeltaCost(const WL_Output& st, const WL_Change& mv) const //metodo dedicato al costo di superamento della capacità
 {
   // Differenza di costo per il Superamento Capacità (Hard)
@@ -328,4 +349,50 @@ int WL_ChangeDeltaCapacity::ComputeDeltaCost(const WL_Output& st, const WL_Chang
 
   return cost_after - cost_before;
 }
+*/
 
+int WL_ChangeDeltaCapacity::ComputeDeltaCost(const WL_Output& st, const WL_Change& mv) const 
+{
+  // Salvo le variabili base per rendere i calcoli successivi più leggibili
+  int goods = in.AmountOfGoods(mv.store);
+  int old_w_load = st.Load(mv.old_w);
+  int new_w_load = st.Load(mv.new_w);
+  int old_w_cap = in.Capacity(mv.old_w);
+  int new_w_cap = in.Capacity(mv.new_w);
+
+  // Calcoliamo la multa attuale (cost_before) dei due magazzini prima dello spostamento
+  int cost_before = 0;
+  
+  // Se il magazzino di origine è attualmente sovraccarico, aggiungo la sua multa
+  if (old_w_load > old_w_cap) {
+      cost_before += old_w_load - old_w_cap;
+  }
+  // Se il magazzino di destinazione è attualmente sovraccarico, aggiungo la sua multa
+  if (new_w_load > new_w_cap) {
+      cost_before += new_w_load - new_w_cap;
+  }
+  
+  // Calcoliamo la multa futura (cost_after) simulando lo spostamento delle merci
+  int cost_after = 0;
+  
+  // Controllo se il magazzino di origine sarà ancora sovraccarico dopo avergli tolto le merci
+  if (old_w_load - goods > old_w_cap) {
+      cost_after += (old_w_load - goods) - old_w_cap;
+  }
+  // Controllo se il magazzino di destinazione diventerà sovraccarico dopo avergli aggiunto le merci
+  if (new_w_load + goods > new_w_cap) {
+      cost_after += (new_w_load + goods) - new_w_cap;
+  }
+
+  // Il Delta Cost è semplicemente la differenza tra la situazione futura e quella passata
+  return cost_after - cost_before;
+}
+
+/*
+
+perchè meglio utlizzare gli if al posto di max
+
+1. riprende esattamente la stessa logica usata dal professore nel metodo originario ComputeCost.
+2. è un ragionamento logico, non un "trucco" da esperti: Uno studente ragiona a condizioni ("Se supera il limite, aggiungi la multa"), non usando scorciatoie matematiche per programmatori avanzati o IA come il clamping (max(0, ...)).
+
+*/
